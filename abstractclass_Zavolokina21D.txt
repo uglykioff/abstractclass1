@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace 
+{
+    abstract class Printing
+    {
+        public string Title { get; set; }
+        public int PageCount { get; set; }
+ 
+        public Printing(string title, int pageCount)
+        {
+            Title = title;
+            PageCount = pageCount;
+        }
+    }
+ 
+    class Magazine : Printing
+    {
+        public Magazine(string title, int pageCount) : base(title, pageCount)
+        {
+        }
+    }
+ 
+    class Book : Printing
+    {
+        public string Author { get; set; }
+ 
+        public Book(string author, string title, int pageCount) : base(title, pageCount)
+        {
+            Author = author;
+        }
+    }
+ 
+    class TextBook : Book
+    {
+        public int Form { get;set; }//год обучения
+ 
+        public TextBook(int form, string author, string title, int pageCount): base(author, title, pageCount)
+        {
+            Form = form;
+        }
+    }
+}
